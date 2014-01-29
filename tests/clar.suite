@@ -1,0 +1,18 @@
+extern void test_upc__it_returns_true_when_the_upc_is_valid(void);
+extern void test_upc__it_returns_false_when_the_upc_has_less_than_twelve_digits(void);
+extern void test_upc__it_returns_false_when_the_upc_has_more_than_twelve_digits(void);
+static const struct clar_func _clar_cb_upc[] = {
+    { "it_returns_true_when_the_upc_is_valid", &test_upc__it_returns_true_when_the_upc_is_valid },
+    { "it_returns_false_when_the_upc_has_less_than_twelve_digits", &test_upc__it_returns_false_when_the_upc_has_less_than_twelve_digits },
+    { "it_returns_false_when_the_upc_has_more_than_twelve_digits", &test_upc__it_returns_false_when_the_upc_has_more_than_twelve_digits }
+};
+static struct clar_suite _clar_suites[] = {
+    {
+        "upc",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_upc, 3, 1
+    }
+};
+static const size_t _clar_suite_count = 1;
+static const size_t _clar_callback_count = 3;
