@@ -3,4 +3,4 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-bool check_upc_integrity(char upc[]);
+bool check_upc_integrity(const char *upc);
