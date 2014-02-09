@@ -2,7 +2,7 @@
 
 uint8_t check_digit_of(const char *upc, size_t upc_len);
 uint8_t upc_sum(const char *upc, size_t upc_len);
-uint8_t real_value_of(const char *upc, const char *i);
+uint8_t real_value_of(const char *upc, const char *current_digit);
 
 bool check_upc_integrity(const char *upc)
 {
@@ -27,15 +27,14 @@ uint8_t check_digit_of(const char *upc, size_t upc_len)
 uint8_t upc_sum(const char *upc, size_t upc_len)
 {
     char *current_digit;
-    char *end;
+    char *last_digit;
     uint8_t total = 0;
 
     current_digit = (char *)upc;
-    end = current_digit + upc_len;
+    last_digit = current_digit + upc_len;
 
-    for (; current_digit < end; ++current_digit) {
+    for (; current_digit < last_digit; ++current_digit)
         total += real_value_of(upc, current_digit);
-    }
 
     return total;
 }
